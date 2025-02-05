@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Puzzle Website</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ChessSite</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li th:if="${username == 'Guest'}"><a href="/login">Login</a></li>
+            <li th:if="${username != 'Guest'}">
+                <form th:action="@{/logout}" method="post" style="display: inline;">
+                    <button type="submit" class="logout-button">
+                        Logout (<span th:text="${username}"></span>)
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Section -->
+        <section>
+            <h1>Welcome, <span th:text="${username}">Guest</span>!</h1>
+            <p>Enjoy solving puzzles and improving your chess skills.</p>
+        </section>
+        
+        <!-- Puzzle Section -->
+        <section class="puzzle-section">
+            <h2>Daily Puzzle</h2>
+            <!-- Chessboard -->
+            <div id="board" class="puzzle-board" style="width: 400px; margin: 0 auto;"></div>
+            
+            <!-- Puzzle Controls -->
+            <div class="puzzle-controls" style="text-align: center; margin-top: 10px;">
+                <button onclick="resetPuzzle()">Start Solving</button>
+            </div>
+            
+            <!-- Error Message -->
+            <p id="error-message" style="color: red; font-weight: bold; display: none; text-align: center;">
+                Failed to load the puzzle. Please try again later.
+            </p>
+            
+            <!-- Solution Section -->
+            <p id="solution" style="color: green; font-weight: bold; display: none; text-align: center;">
+                Puzzle solved!
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ChessSite. All rights reserved.</p>
+    </footer>
+
+    <!-- Pass username to script -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.username = /*[[${username}]]*/ 'Guest';
+        /*]]>*/
+    </script>
+    
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
