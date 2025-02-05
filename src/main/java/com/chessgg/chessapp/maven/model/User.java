@@ -6,20 +6,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "users")
+=======
+@Table(name = "users")  // Corresponds to the 'users' table in the database
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @Column(nullable = false, unique = true)
+=======
+    @Column(nullable = false, unique = true)  // Makes the username field required and unique
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
+<<<<<<< HEAD
     private String salt; // Field for the salt
 
     @Column(nullable = false, unique = true)
@@ -35,6 +44,19 @@ public class User {
     private String twitchLink;
 
     @Column(unique = true)
+=======
+    private String salt;  // The salt used for hashing the password
+
+    @Column(nullable = false, unique = true)
+    private String email;  // User's email
+
+    @Column(unique = true)
+    private String facebookLink;  // Link to the user's Facebook profile (if any)
+
+    // Other social media links like Instagram, Twitch, etc.
+    private String instagramLink;
+    private String twitchLink;
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
     private String twitterLink;
 
     private String firstName;
@@ -45,6 +67,10 @@ public class User {
     private String language;
     private String timezone;
 
+<<<<<<< HEAD
+=======
+    // Player statistics
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
     private int puzzleRating = 1000;
     private int multiplayerRating = 1000;
     private int xp = 0;
@@ -56,17 +82,26 @@ public class User {
     private int totalPuzzlesSolved = 0;
     private int consecutiveDaysLoggedIn = 0;
 
+<<<<<<< HEAD
     @Column(length = 2500)
     private String aboutMe;
 
     private LocalDate lastLoginDate;
 
+=======
+    private String aboutMe;  // The user's biography
+
+    private LocalDate lastLoginDate;  // The last time the user logged in
+
+    // Many-to-many relationship: A user can have multiple roles
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+<<<<<<< HEAD
     private Set<Role> roles = new HashSet<>(); // New field for roles
 
     public User() {
@@ -74,6 +109,11 @@ public class User {
         this.level = 1;
         this.consecutiveDaysLoggedIn = 0;
     }
+=======
+    private Set<Role> roles = new HashSet<>();  // Set of roles the user has
+
+    // Getters and Setters for all fields
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
 
     // Getters and Setters for all fields
     public Long getId() {

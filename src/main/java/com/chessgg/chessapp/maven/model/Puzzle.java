@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 
 @Entity
 @Table(name = "puzzle")
@@ -37,6 +38,41 @@ public class Puzzle {
     @OneToMany(mappedBy = "puzzle", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonDeserialize(using = PuzzleSolutionListDeserializer.class)
     private List<PuzzleSolution> solutions = new ArrayList<>();
+=======
+@Entity  // This annotation marks the class as a JPA entity, meaning it corresponds to a table in the database
+@Table(name = "puzzle")  // Specifies the table name in the database
+public class Puzzle {
+
+    @Id  // Marks this field as the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Automatically generates the ID value when a new puzzle is created
+    private Long id;
+
+    private String position;  // Stores the board position in FEN notation (Forsyth-Edwards Notation)
+    private String description;  // A short description of the puzzle
+    private int rating;  // Rating of the puzzle
+    private String title;  // Title of the puzzle
+    private String themes;  // Themes or categories of the puzzle (e.g., checkmate, tactical)
+    private String pgn;  // Stores the PGN (Portable Game Notation) of the puzzle's solution
+    private int ratingDeviation;  // Rating deviation of the puzzle
+    private int popularity;  // Popularity score of the puzzle (can be based on how many people solve it)
+    private int nbPlays;  // Number of times the puzzle has been played
+    private String gameUrl;  // URL to the game related to this puzzle
+    private String video;  // URL to a video explanation of the puzzle
+    private String openingTags;  // Tags related to the opening in chess (e.g., King's Gambit)
+
+    @JsonProperty("daily")  // Ensures the 'daily' property is properly serialized/deserialized
+    private boolean isDaily;  // Flag indicating if this puzzle is a daily puzzle
+
+    private LocalDate publishDate;  // The date when the puzzle was published
+
+    // One-to-many relationship: A puzzle can have multiple solutions
+    @OneToMany(mappedBy = "puzzle", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonDeserialize(using = PuzzleSolutionListDeserializer.class)  // Custom deserializer for puzzle solutions
+    private List<PuzzleSolution> solutions = new ArrayList<>();  // List to hold the solutions for the puzzle
+
+    // Getters and Setters for all fields
+
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
 
     // Getters and Setters
     public Long getId() { return id; }

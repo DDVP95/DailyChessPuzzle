@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     // Get the username from the global variable
+=======
+// main script.js
+import { fetchPuzzleData } from './puzzle.js';
+import { initializeBoard } from './board.js';
+import { handlePawnPromotion } from './promotion.js';
+import { displayErrorMessage } from './errorHandling.js';
+
+document.addEventListener("DOMContentLoaded", function () {
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
     const username = window.username || 'Guest';
     console.log("Loaded username:", username);
 
@@ -8,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+<<<<<<< HEAD
     fetch("/api/daily-puzzle")
         .then(response => {
             if (!response.ok) {
@@ -94,11 +105,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 // Handle move validation
+=======
+    // Fetch the puzzle data
+    fetchPuzzleData()
+        .then(data => {
+            console.log("Puzzle Data Received:", data);
+
+            const initialPuzzlePosition = data.puzzleData.position;
+            const puzzleSolutions = data.puzzleSolutions;
+
+            // Initialize the board with the puzzle position
+            const { game, board } = initializeBoard(initialPuzzlePosition, data.puzzleData, handleMove);
+
+            let currentMoveIndex = 0;
+
+            // Handle the move logic (including pawn promotion)
+            function handleMove(source, target) {
+                let moveObj = { from: source, to: target };
+
+                moveObj = handlePawnPromotion(game, source, target);  // Handle pawn promotion
+
+                const attemptedMove = game.move(moveObj);
+                
+                if (!attemptedMove) {
+                    console.error(`Invalid move made: ${source}-${target}`);
+                    alert("Invalid move! Try again.");
+                    game.load(initialPuzzlePosition);
+                    board.position(game.fen());
+                    currentMoveIndex = 0;
+                    return 'snapback';
+                }
+
+                // Move validation and solution checking
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
                 const moveSAN = attemptedMove.san;
                 const expectedSolution = puzzleSolutions.find(solution => solution[currentMoveIndex] === moveSAN);
 
                 if (expectedSolution) {
                     console.log("Correct move!");
+<<<<<<< HEAD
                     board.position(game.fen()); // Update board
                     currentMoveIndex++;
 
@@ -113,12 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     // Check if the puzzle is solved
+=======
+                    board.position(game.fen());
+                    currentMoveIndex++;
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
                     if (currentMoveIndex >= expectedSolution.length) {
                         setTimeout(() => alert('Puzzle solved!'), 500);
                     }
                 } else {
                     console.error(`Incorrect move! Expected: ${expectedSolution[currentMoveIndex]}, Got: ${moveSAN}`);
                     alert("Incorrect move! Try again.");
+<<<<<<< HEAD
                     game.load(initialPuzzlePosition); // Reset to the initial puzzle position (FEN)
                     board.position(game.fen()); // Update the board to the initial puzzle position
                     currentMoveIndex = 0; // Reset the move index
@@ -132,15 +182,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             setInterval(updateBoardAfterPromotion, 100); // Keep checking for updates
+=======
+                    game.load(initialPuzzlePosition);
+                    board.position(game.fen());
+                    currentMoveIndex = 0;
+                    return 'snapback';
+                }
+            }
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
         })
         .catch(error => {
             console.error("Error loading the puzzle:", error);
             displayErrorMessage("Failed to load the puzzle. Please try again later.");
         });
+<<<<<<< HEAD
 
     function displayErrorMessage(message) {
         const errorElement = document.getElementById("error-message");
         errorElement.innerText = message;
         errorElement.style.display = "block";
     }
+=======
+>>>>>>> 295a1a5 (Documentation/Commenting final version)
 });
