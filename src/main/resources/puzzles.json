@@ -1,0 +1,123 @@
+[
+  {
+    "id": 857,
+    "position": "q7/8/8/8/8/6k1/8/6K1 b - - 0 1",
+    "description": "Daily puzzle 7: Mate in 1.",
+    "rating": 1507,
+    "title": "Puzzle 7: Tactical Trick",
+    "themes": "checkmate",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. f4#",
+    "ratingDeviation": 57,
+    "popularity": 1070,
+    "nbPlays": 507,
+    "gameUrl": "https://example.com/game/7",
+    "video": "https://example.com/video/7",
+    "openingTags": "King's Gambit",
+    "daily": true,
+    "publishDate": "2025-01-23",
+    "solutions": [
+      ["Qg2#"], 
+      ["Qa1#"]
+    ]
+  },
+  {
+    "id": 858,
+    "position": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 1",
+    "solutions": [["Qh4#"]],
+    "description": "Daily puzzle 7: Mate in 1.",
+    "publishDate": "2025-01-31",
+    "daily": true,
+    "rating": 1507,
+    "title": "Puzzle 7: Tactical Trick",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. f4#",
+    "themes": "checkmate",
+    "ratingDeviation": 57,
+    "popularity": 1070,
+    "nbPlays": 507,
+    "gameUrl": "https://example.com/game/7",
+    "video": "https://example.com/video/7",
+    "openingTags": "King's Gambit"
+  },
+  {
+    "id": 859,
+    "position": "rn1qkb1r/pp1bpppp/3p1n2/2p4Q/2B1P3/2N5/PPPP1PPP/R1B1K1NR w KQkq - 0 1",
+    "solutions": [["Qxf7#"]],
+    "description": "Daily puzzle 7: Mate in 1.",
+    "publishDate": "2025-01-29",
+    "daily": true,
+    "rating": 1507,
+    "title": "Puzzle 7: Tactical Trick",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. f4#",
+    "themes": "checkmate",
+    "ratingDeviation": 57,
+    "popularity": 1070,
+    "nbPlays": 507,
+    "gameUrl": "https://example.com/game/7",
+    "video": "https://example.com/video/7",
+    "openingTags": "King's Gambit"
+  },
+  {
+    "id": 861,
+    "position": "8/8/8/8/8/6k1/4r3/7K b - - 0 1",
+    "solutions": [
+      ["Re3", "Kg1", "Re1#"],
+      ["Re8", "Kg1", "Re1#"]
+    ],
+    "description": "Daily puzzle 7: Mate in 1.",
+    "publishDate": "2025-01-24",
+    "daily": true,
+    "rating": 1507,
+    "title": "Puzzle 7: Tactical Trick",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. f4#",
+    "themes": "checkmate",
+    "ratingDeviation": 57,
+    "popularity": 1070,
+    "nbPlays": 507,
+    "gameUrl": "https://example.com/game/7",
+    "video": "https://example.com/video/7",
+    "openingTags": "King's Gambit"
+  },
+  {
+    "id": 860,
+    "position": "8/5KPk/5B2/8/8/8/8/8 w - - 0 1",
+    "solutions": [
+      ["g8=Q+", "Kh6", "Qg6#"],
+      ["g8=Q+", "Kh6", "Qh8#"],
+      ["g8=R", "Kh6", "Rh8#"]
+    ],
+    "description": "Daily puzzle 7: Promote to checkmate in 3 moves.",
+    "publishDate": "2025-02-01",
+    "daily": true,
+    "rating": 1507,
+    "title": "Puzzle 7: Tactical Trick",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. g8=Q+ Kg7 2. Qg7#",
+    "themes": "checkmate, pawn promotion",
+    "ratingDeviation": 57,
+    "popularity": 1070,
+    "nbPlays": 507,
+    "gameUrl": "https://example.com/game/7",
+    "video": "https://example.com/video/7",
+    "openingTags": "Pawn Promotion Puzzle"
+  },
+  {
+    "id": 861,
+    "position": "rnbqkbnr/pppp1ppp/8/4Pp2/8/8/PPPP2PP/RNBQKBNR w KQkq f6 0 1",
+    "solutions": [
+        ["exf6"]
+    ],
+    "description": "Daily Puzzle 8: Execute an en passant capture.",
+    "publishDate": "2025-02-05",
+    "daily": true,
+    "rating": 1520,
+    "title": "Puzzle 8: En Passant Trick",
+    "pgn": "[White 'Player1'] [Black 'Opponent'] 1. e5 f5 2. exf6#",
+    "themes": "en passant",
+    "ratingDeviation": 55,
+    "popularity": 980,
+    "nbPlays": 500,
+    "gameUrl": "https://example.com/game/8",
+    "video": "https://example.com/video/8",
+    "openingTags": "French Defense"
+}
+
+]
